@@ -1,3 +1,8 @@
+ /* Hide scrollbar for Chrome, Safari and Opera */
+body::-webkit-scrollbar {
+  display: none;
+}
+
 html {
     box-sizing: border-box;
     font-family: 'Inter', sans-serif;
@@ -12,6 +17,8 @@ body {
     flex-flow: column wrap;
     align-items: center;
     min-height: 100vh;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
 }
 
 .container {
