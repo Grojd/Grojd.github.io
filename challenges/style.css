@@ -184,3 +184,15 @@ footer {
 footer a:hover{
     text-decoration: underline;
 }
+
+@media (max-width: 768px) {
+    .projects {
+        flex-wrap: wrap;
+    }
+    .project {
+        margin-top: 5%;
+    }
+    .hover-text {
+        font-size: 1.5em;
+    }
+}
