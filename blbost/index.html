@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main>
+        <h1>Choose RGB background color</h1>
+        <input type="color" name="color" id="color">
+        <div>RGBA value:<span id="rgba"></span><br>
+            HEX value:<span id="hex"></span><br>
+            HSLA value:<span id="hsla"></span><br>
+            Change opacity:<input type="range" name="range" id="range" min="0" max="1" step="0.01" value="1"><br>
+            Opposite:<input type="checkbox" name="opposite" id="opposite"><br>
+            Fully saturated:<input type="checkbox" name="saturation" id="saturation"><br>
+        </div>
+        <button name="button" id="button">Submit</button>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

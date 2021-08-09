@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;1,300&display=swap');
+
+main {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+span {
+    margin: 1%;
+    font-style: italic;
+    font-size: 1.1em;
+}
+
+#color {
+    margin-bottom: 2%;
+}
+
+button {
+    margin: 3%;
+    padding: 2%;
+}
