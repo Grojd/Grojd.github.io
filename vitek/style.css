@@ -3,6 +3,7 @@
 :root {
     --menu-bg-color: #333;
     --main-bg-color: linear-gradient(#ddd6d0, #4c2f38);
+    --menu-bg-color-hover: #111;
 }
 
 * {
@@ -21,11 +22,10 @@ body {
 nav {
     background-color: var(--menu-bg-color);
     width: 100%;
-    height: 7vh;
-    padding: 1%;
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
+    font-size: 0;
 }
 
 .main {
@@ -40,9 +40,20 @@ nav {
 nav a {
     color: white;
     text-decoration: none;
-    margin: 2%;
-    font-size: 1.35em;
+    padding: 0 2%;
+    font-size: 1.35rem;
     font-weight: 400;
+    height: 7vh;
+    display: inline-block;
+    line-height: 7vh;
+}
+
+nav a:hover {
+    background-color: var(--menu-bg-color-hover);
+}
+
+#active {
+    text-shadow: 0 0 4px #4CAF50;
 }
 
 main {
