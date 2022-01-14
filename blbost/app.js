@@ -98,12 +98,6 @@ class Color {
     }
 }
 
-
-const c1 = new Color([255, 67, 89]);
-
-
-
-
 const opacity = document.querySelector('#range');
 function opacityValue() {
     return opacity.value;
