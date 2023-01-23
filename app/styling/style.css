@@ -12,6 +12,7 @@
 }
 
 body {
+    overflow-x: hidden;
     background: var(--bg-color);
     display: flex;
     flex-flow: column nowrap;
@@ -46,12 +47,19 @@ body {
     letter-spacing: 0.07em;
     word-spacing: 0.04em;
     transition: all 0.1s ease-in;
+    line-height: 5vh;
 }
 
 .title:hover {
     color: var(--text-hover);
     transition: all 0.2s ease-in;
     cursor: default;
+}
+
+@media screen and (max-width: 462px) {
+    .title {
+        font-size: 1.5em;
+    }
 }
 
 .text-muted {
@@ -72,12 +80,13 @@ body {
 }
 
 .controlling-container {
-    width: 90vw;
+    width: 86.5vw;
     height: 13vh;
     display: flex;
     flex-flow: row nowrap;
-    justify-content: space-evenly;
+    justify-content: space-around;
     align-items: center;
+    column-gap: 2vw;
 }
 
 .controlling-item {
@@ -102,6 +111,16 @@ body {
     fill: var(--text-hover);
 }
 
+.new svg {
+    transition: all 0.2s ease-in;
+}
+
+.new:hover svg,
+.new:focus svg {
+    transition: all 0.2s ease-in;
+    stroke: var(--text-hover);
+}
+
 .settings g {
     transition: all 0.2s ease-in;
 }
@@ -114,10 +133,11 @@ body {
 
 main {
     width: 83vw;
-    border: dashed var(--bg-range);
+    border: 2px dashed var(--bg-range);
     display: flex;
     flex-flow: row wrap;
-    padding: 1vh 3vw;
+    justify-content: space-evenly;
+    padding: 1vh 2vw;
 }
 
 .entry {
@@ -236,4 +256,39 @@ main {
 
 .hidden {
     display: none;
+}
+
+/* Filtry */
+
+.filters-container {
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    transform: translateX(100%);
+    transition: all 0.1s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.filter-card {
+    height: 95%;
+    width: 95%;
+    margin: 2.5%;
+    background-color: var(--bg-card);
+}
+
+.offscreen {
+    transform: translateX(0%);
+    transition: all 0.1s ease-in-out;
+}
+
+.exit {
+    position: relative;
+    cursor: pointer;
+    right: 0;
+    width: 7%;
+    aspect-ratio: 1/1;
 }
