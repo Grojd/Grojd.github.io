@@ -12,3 +12,4 @@ observer.observe(filter);
 filter.addEventListener('click', () => filtersContainer.classList.add('offscreen'));
 filterFixed.addEventListener('click', () => filtersContainer.classList.add('offscreen'));
 exitBtn.addEventListener('click', () => filtersContainer.classList.remove('offscreen'));
+
