@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap');
+
+:root {
+    --bg-color: linear-gradient(to bottom right, #4237BA, #9088D5);
+    --bg-card: #020308;
+    --bg-button: #4C30C1;
+    --bg-range: #4529DB;
+    --text: #f4f4f5;
+    --text-muted: #737479;
+    --text-hover: #9088D5;
+}
+
+body {
+    background: var(--bg-color);
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: stretch;
+    row-gap: 10vh;
+    padding-top: 3.5vh;
+    line-height: 1.6;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+}
+
+.site-header {
+    width: 90vw;
+    height: 10vh;
+    border-radius: 9px;
+    background: var(--bg-card);
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+    line-height: 100%;
+}
+
+.title {
+    color: var(--text);
+    font-size: 1.8em;
+    margin-left: 2vw;
+    font-family: 'Comfortaa', cursive;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    word-spacing: 0.04em;
+    transition: all 0.1s ease-in;
+}
+
+.title:hover {
+    color: var(--text-hover);
+    transition: all 0.2s ease-in;
+    cursor: default;
+}
+
+.text-muted {
+    color: var(--text-muted);
+}
+
+.by {
+    font-size: 0.7em;
+    margin-right: 0.2vw;
+    rotate: -90deg;
+    transition: all 0.1s ease-in;
+}
+
+.by:hover {
+    color: var(--text-hover);
+    transition: all 0.2s ease-in;
+    cursor: default;
+}
+
+.controlling-container {
+    width: 90vw;
+    height: 13vh;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.controlling-item {
+    background: var(--bg-card);
+    display: block;
+    height: 100%;
+    width: 35%;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.filtering g {
+    transition: all 0.2s ease-in;
+}
+
+.filtering:hover g,
+.filtering:focus g {
+    transition: all 0.2s ease-in;
+    fill: var(--text-hover);
+}
+
+.settings g {
+    transition: all 0.2s ease-in;
+}
+
+.settings:hover g,
+.settings:focus g {
+    transition: all 0.2s ease-in;
+    fill: var(--text-hover);
+}
+
+main {
+    width: 83vw;
+    border: dashed var(--bg-range);
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.entry {
+    margin: 3vh 2vw;
+    background: var(--bg-card);
+    border-radius: 10px;
+    color: var(--text);
+    padding: 2%;
+}
