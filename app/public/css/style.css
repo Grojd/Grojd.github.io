@@ -142,6 +142,7 @@ main {
     flex-flow: row wrap;
     justify-content: space-evenly;
     padding: 1vh 2vw;
+    margin-bottom: 5%;
 }
 
 .entry {
@@ -149,7 +150,7 @@ main {
     width: 290px;
 }
 
-.entry>a {
+.entry .a {
     width: 100%;
     height: 100%;
     color: var(--text);
@@ -158,6 +159,7 @@ main {
     display: block;
     text-decoration: none;
     background: var(--bg-card);
+    cursor: pointer;
 }
 
 .card-container {
@@ -273,7 +275,7 @@ main {
 
 /* Filtry */
 
-.filters-container {
+.offscreen-container {
     z-index: 3;
     position: fixed;
     top: 0;
@@ -290,7 +292,7 @@ main {
 }
 
 .first-row {
-    height: 13vh;
+    min-height: 13vh;
     width: 100vw;
     display: flex;
     flex-flow: row nowrap;
@@ -347,14 +349,15 @@ main {
 }
 
 .second-row {
-    height: 13vh;
+    min-height: 13vh;
     width: 100vw;
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: row wrap;
     color: var(--text);
     margin-bottom: 2vh;
     align-items: center;
     justify-content: space-around;
+    row-gap: 2.5vh;
 }
 
 .sort-group {
@@ -373,6 +376,18 @@ main {
     cursor: pointer;
 }
 
-.sort-group:last-child>span:last-child {
-    visibility: hidden;
+@media screen and (max-width: 650px) {
+    .exit {
+        transform: rotate(-90deg);
+    }
+
+    .sort-group {
+        flex-basis: 40%;
+    }
+}
+
+/* Přidat */
+
+label {
+    color: var(--text);
 }

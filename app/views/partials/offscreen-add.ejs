@@ -1,0 +1,47 @@
+<div class="offscreen-container" id="add">
+    <div class="first-row">
+        <div class="filters-title">
+            Přidat <span class="text-muted">nový záznam</span>
+        </div>
+        <div class="exit exit2">
+            <span>close</span>
+        </div>
+    </div>
+    <form action="/ejs" class="form" method="POST">
+        <!-- <div class="form-item">
+            <label for="nickname">Programátor</label>
+            <input type="text" name="nickname" id="nickname" minlength="1" maxlength="14" required>
+        </div> -->
+        <div class="form-item">
+            <label for="date">Datum:</label>
+            <input type="date" name="date" id="date" required>
+        </div>
+        <div class="form-item">
+            <label for="time">Strávený čas</label>
+            <input type="number" name="time" id="time" placeholder="v minutách" required>
+        </div>
+        <div class="form-item">
+            <label for="language">Programovací jazyk</label>
+            <select name="language" id="language" required>
+                <option value="" selected disabled hidden>jazyk</option>
+                <option value="C++">C++</option>
+                <option value="Python">Python</option>
+                <option value="HTML">HTML</option>
+                <option value="CSS3">CSS3</option>
+                <option value="Pascal">Pascal</option>
+                <option value="Rust">Rust</option>
+            </select>
+        </div>
+        <div class="form-item">
+            <label for="rating">Hodnocení</label>
+            <input type="range" name="rating" id="rating" min="1" max="5" step="1" required>
+        </div>
+        <div class="form-item">
+            <label for="description">Poznámky</label>
+            <textarea name="description" id="description" cols="30" rows="10"></textarea>
+        </div>
+        <div class="form-item">
+            <button>Přidat záznam</button>
+        </div>
+    </form>
+</div>

@@ -2,6 +2,7 @@
 const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
+const ejsMate = require('ejs-mate');
 const methodOverride = require('method-override');
 const Record = require('./models/record');
 
@@ -18,6 +19,7 @@ db.once('open', () => {
 const app = express();
 
 // Middleware //
+app.engine('ejs', ejsMate)
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
@@ -31,8 +33,14 @@ app.use(methodOverride('_method'));
 
 app.get('/', async (req, res) => {
     const records = await Record.find();
-    res.render('ejs/index', { records });
+    res.render('records/index', { records });
 });
+
+app.post('/ejs', async (req, res) => {
+    const newRecord = new Record(req.body);
+    await newRecord.save();
+    res.redirect('/');
+})
 
 // Port //
 app.listen(3000, () => console.log('app running'));

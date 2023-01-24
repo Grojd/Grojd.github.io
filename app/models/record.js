@@ -2,14 +2,11 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-let tagSchema = new Schema({
-    tag: String
-});
-
 const recordSchema = new Schema({
     nickname: {
         type: String,
-        required: true
+        required: true,
+        default: 'vy'
     },
     date: {
         type: Date,
@@ -35,9 +32,6 @@ const recordSchema = new Schema({
         type: String,
         required: true,
     },
-    tags: {
-        type: [tagSchema],
-    }
 });
 
 const Record = mongoose.model('Record', recordSchema);
