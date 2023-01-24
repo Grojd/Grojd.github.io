@@ -11,6 +11,7 @@
 </head>
 
 <body>
+
     <header class="site-header">
         <div class="title">Programátorský deník</div>
         <div class="text-muted by">//voko&vitek//</div>
@@ -75,9 +76,10 @@
         </section>
         <% for (let record of records) {%>
         <section class="entry">
-            <a href="entry1" style="
+            <div class="a" id="<%=record._id%>">
+                <!-- <a href="entry1" style="
         border-image-source: linear-gradient(0deg, rgba(34, 193, 195, 1) 0%, rgb(0, 0, 0) 60%);
-                ">
+                "> -->
                 <div class="card-container">
                     <div class="nickname">/<%=record.nickname%>/</div>
                     <div class="card">
@@ -93,7 +95,8 @@
                     </div>
                     <div class="lang">\<%=record.language%>\</div>
                 </div>
-            </a>
+                <!-- </a> -->
+            </div>
         </section>
         <% } %>
     </main>
@@ -109,12 +112,12 @@
             </g>
         </svg>
     </div>
-    <div class="filters-container">
+    <div class="offscreen-container" id="filter">
         <div class="first-row">
             <div class="filters-title">
                 filtrovat <span class="text-muted">a</span> seřadit
             </div>
-            <div class="exit">
+            <div class="exit exit1">
                 <span>close</span>
             </div>
         </div>
@@ -122,10 +125,57 @@
             <div class="sort-group"><span class="sort">nejnovější</span><span class="sort">nejstarší</span></div>
             <div class="sort-group"><span class="sort">nejdelší</span><span class="sort">nejkratší</span></div>
             <div class="sort-group"><span class="sort">nejlepší</span><span class="sort">nejhorší</span></div>
-            <div class="sort-group"><span class="sort">jazyk</span><span class="sort">hidden</span></div>
+            <div class="sort-group"><span class="sort">jazyk</span><span class="sort">neřadit</span></div>
         </div>
         <form action="" class="filter-form">
 
+        </form>
+    </div>
+    <div class="offscreen-container" id="add">
+        <div class="first-row">
+            <div class="filters-title">
+                Přidat <span class="text-muted">nový záznam</span>
+            </div>
+            <div class="exit exit2">
+                <span>close</span>
+            </div>
+        </div>
+        <form action="/ejs" class="form" method="POST">
+            <!-- <div class="form-item">
+                <label for="nickname">Programátor</label>
+                <input type="text" name="nickname" id="nickname" minlength="1" maxlength="14" required>
+            </div> -->
+            <div class="form-item">
+                <label for="date">Datum:</label>
+                <input type="date" name="date" id="date" required>
+            </div>
+            <div class="form-item">
+                <label for="time">Strávený čas</label>
+                <input type="number" name="time" id="time" placeholder="v minutách" required>
+            </div>
+            <div class="form-item">
+                <label for="language">Programovací jazyk</label>
+                <select name="language" id="language" required>
+                    <option value="" selected disabled hidden>jazyk</option>
+                    <option value="C++">C++</option>
+                    <option value="Python">Python</option>
+                    <option value="HTML">HTML</option>
+                    <option value="CSS3">CSS3</option>
+                    <option value="Pascal">Pascal</option>
+                    <option value="Rust">Rust</option>
+                </select>
+            </div>
+            <div class="form-item">
+                <label for="rating">Hodnocení</label>
+                <input type="range" name="rating" id="rating" min="1" max="5" step="1" required>
+            </div>
+            <div class="form-item">
+                <label for="description">Poznámky</label>
+                <textarea name="description" id="description" cols="30" rows="10"></textarea>
+            </div>
+            <div class="form-item">
+                <button>Přidat záznam</button>
+            </div>
         </form>
     </div>
     <script src="static/javascript/app.js"></script>
