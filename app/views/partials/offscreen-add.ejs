@@ -7,13 +7,18 @@
             <span>close</span>
         </div>
     </div>
-    <form action="/ejs" class="form" method="POST">
-        <!-- <div class="form-item">
-            <label for="nickname">Programátor</label>
-            <input type="text" name="nickname" id="nickname" minlength="1" maxlength="14" required>
-        </div> -->
+    <form action="/records" class="form offscreen-content-container" method="POST">
         <div class="form-item">
-            <label for="date">Datum:</label>
+            <label for="user">Programátor</label>
+            <select name="user" id="user" required>
+                <option value="" selected disabled hidden>přezdívka</option>
+                <% for (let user of users) {%>
+                <option value="<%=user._id%>"><%=user.nickname%></option>
+                <% } %>
+            </select>
+        </div>
+        <div class="form-item">
+            <label for="date">Datum</label>
             <input type="date" name="date" id="date" required>
         </div>
         <div class="form-item">
@@ -24,21 +29,21 @@
             <label for="language">Programovací jazyk</label>
             <select name="language" id="language" required>
                 <option value="" selected disabled hidden>jazyk</option>
-                <option value="C++">C++</option>
-                <option value="Python">Python</option>
-                <option value="HTML">HTML</option>
-                <option value="CSS3">CSS3</option>
-                <option value="Pascal">Pascal</option>
-                <option value="Rust">Rust</option>
+                <% for (let language of languages) {%>
+                <option value="<%=language._id%>"><%=language.name%></option>
+                <% } %>
             </select>
         </div>
         <div class="form-item">
-            <label for="rating">Hodnocení</label>
-            <input type="range" name="rating" id="rating" min="1" max="5" step="1" required>
+            <label for="rating" class="rating">Hodnocení</label><output id="rangevalue" style="color: var(--text-muted);
+            min-width: 10%;
+            font-style: italic;"></output>
+            <input type="range" name="rating" id="rating" min="1" max="5" step="1" default="1"
+                oninput="rangevalue.value=value" required>
         </div>
         <div class="form-item">
             <label for="description">Poznámky</label>
-            <textarea name="description" id="description" cols="30" rows="10"></textarea>
+            <textarea name="description" id="description" cols="30" rows="5"></textarea>
         </div>
         <div class="form-item">
             <button>Přidat záznam</button>

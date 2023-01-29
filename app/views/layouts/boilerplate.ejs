@@ -8,6 +8,7 @@
     <title>Programátorský deník</title>
     <link rel="stylesheet" href="/static/css/reset.css">
     <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="icon" type="image/x-icon" href="/static/css/favicon.ico">
 </head>
 
 <body>
@@ -19,6 +20,9 @@
     <%- include('../partials/filter-button') %>
     <%- include('../partials/offscreen-filter') %>
     <%- include('../partials/offscreen-add') %>
+    <%- include('../partials/offscreen-details') %>
+    <script>const records = <%- JSON.stringify(records) %>;</script>
+    <script src="static/javascript/app.js"></script>
 </body>
 
 </html>

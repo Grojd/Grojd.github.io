@@ -4,7 +4,7 @@ const path = require('path');
 const mongoose = require('mongoose');
 const ejsMate = require('ejs-mate');
 const methodOverride = require('method-override');
-const Record = require('./models/record');
+const { User, Record, Language } = require('./models/models');
 
 // Databáze //
 mongoose.set('strictQuery', true); // vypnutí varování //
@@ -32,15 +32,26 @@ app.use(methodOverride('_method'));
 // Routes //
 
 app.get('/', async (req, res) => {
-    const records = await Record.find();
-    res.render('records/index', { records });
+    const records = await Record.find().populate(["user", "language"]);
+    const users = await User.find();
+    const languages = await Language.find();
+    res.render('records/index', { records, users, languages });
 });
 
-app.post('/ejs', async (req, res) => {
+app.post('/records', async (req, res) => {
     const newRecord = new Record(req.body);
     await newRecord.save();
     res.redirect('/');
 })
 
+app.put('/records/:id', async (req, res) => {
+    const record = await Record.findByIdAndUpdate(req.params.id, req.body);
+    res.redirect('/');
+})
+
+app.delete('/records/:id', async (req, res) => {
+    const record = await Record.findByIdAndDelete(req.params.id);
+    res.redirect('/');
+})
 // Port //
 app.listen(3000, () => console.log('app running'));

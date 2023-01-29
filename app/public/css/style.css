@@ -9,6 +9,12 @@
     --text: #f4f4f5;
     --text-muted: #737479;
     --text-hover: #9088D5;
+    /* Rating */
+    --one: linear-gradient(0deg, #361cca 0%, #4C30C1 5%);
+    --two: linear-gradient(0deg, #361cca 0%, #4C30C1 35%);
+    --three: linear-gradient(0deg, #361cca 0%, #4C30C1 65%);
+    --four: linear-gradient(0deg, #361cca 0%, #4C30C1 90%);
+    --five: linear-gradient(0deg, #361cca 0%, #4C30C1 100%);
 }
 
 html {
@@ -186,15 +192,16 @@ main {
 .card {
     padding: 0 7%;
     height: 100%;
+    min-height: 200px;
     width: 100%;
 }
 
 .desc {
-    font-style: italic;
     color: var(--text-muted);
-    transition: all 0.2s ease-in;
+    transition: all 0.1s ease-in;
     font-size: 1.15em;
     height: 75%;
+    word-break: break-all;
 }
 
 .desc:hover,
@@ -221,16 +228,27 @@ main {
     padding: 3px 16px;
 }
 
-.date {
-    display: inline-block;
+.third {
     width: 100%;
     text-align: right;
-    transform: translateY(35%);
+    /* transform: translateY(35%); */
     font-size: 0.89em;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.time {
+    text-align: left;
+}
+
+.date {
+    text-align: right;
 }
 
 .lang {
-    width: 30%;
+    min-width: 30%;
     height: 4vh;
     text-align: center;
     font-weight: 100;
@@ -239,6 +257,7 @@ main {
     line-height: 4vh;
     background: var(--bg-range);
     font-size: 1.1em;
+    padding: 0 5%;
 }
 
 /* Filtr tlačítko */
@@ -388,6 +407,60 @@ main {
 
 /* Přidat */
 
+.offscreen-content-container {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.form-item {
+    width: 100%;
+    margin-bottom: -1px;
+}
+
+.form-item::after {
+    position: relative;
+    display: block;
+    content: '';
+    width: 90%;
+    height: 1px;
+    background-color: var(--text-muted);
+    border-radius: 10px;
+    margin-top: 5%;
+    left: 5%;
+}
+
+.form-item::before {
+    position: relative;
+    display: block;
+    content: '';
+    width: 90%;
+    height: 1px;
+    background-color: var(--text-muted);
+    border-radius: 10px;
+    margin-bottom: 5%;
+    left: 5%;
+}
+
+.form-item>.rating {
+    margin-right: 4%;
+}
+
 label {
     color: var(--text);
+    margin-right: 3%;
+}
+
+input[type="range"] {
+    transform: translateY(30%);
+    margin: 0;
+    display: block;
+    width: 65%;
+    margin-left: 17.5%;
 }

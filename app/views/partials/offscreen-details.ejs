@@ -1,0 +1,59 @@
+<div class="offscreen-container" id="details">
+    <div class="first-row">
+        <div class="filters-title">
+            Upravuješ <span class="text-muted">záznam</span>
+        </div>
+        <div class="exit exit3">
+            <span>close</span>
+        </div>
+    </div>
+    <div class="offscreen-content-container">
+        <form class="form" method="POST" id="update">
+            <div class="form-item">
+                <label for="user">Programátor</label>
+                <select name="user" id="user" required>
+                    <option value="" selected disabled hidden>přezdívka</option>
+                    <% for (let user of users) {%>
+                    <option value="<%=user._id%>"><%=user.nickname%></option>
+                    <% } %>
+                </select>
+            </div>
+            <div class="form-item">
+                <label for="date">Datum</label>
+                <input type="date" name="date" id="date" required>
+            </div>
+            <div class="form-item">
+                <label for="time">Strávený čas</label>
+                <input type="number" name="time" id="time" placeholder="v minutách" required>
+            </div>
+            <div class="form-item">
+                <label for="language">Programovací jazyk</label>
+                <select name="language" id="language" required>
+                    <option value="" selected disabled hidden>jazyk</option>
+                    <% for (let language of languages) {%>
+                    <option value="<%=language._id%>"><%=language.name%></option>
+                    <% } %>
+                </select>
+            </div>
+            <div class="form-item">
+                <label for="rating" class="rating">Hodnocení</label><output id="rangevalue" style="color: var(--text-muted);
+            min-width: 10%;
+            font-style: italic;"></output>
+                <input type="range" name="rating" id="rating" min="1" max="5" step="1" default="1"
+                    oninput="rangevalue.value=value" required>
+            </div>
+            <div class="form-item">
+                <label for="description">Poznámky</label>
+                <textarea name="description" id="description" cols="30" rows="5"></textarea>
+            </div>
+            <div class="form-item">
+                <button>Upravit</button>
+            </div>
+        </form>
+        <div class="form-item">
+            <form method="POST" id="delete">
+                <button>Delete</button>
+            </form>
+        </div>
+    </div>
+</div>
