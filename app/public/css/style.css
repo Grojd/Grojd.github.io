@@ -303,6 +303,11 @@ main {
     transform: translateX(200%);
     transition: all 0.4s ease-in;
     background-color: var(--bg-card);
+    overflow-y: auto;
+}
+
+.inner {
+    min-height: 100%;
 }
 
 .offscreen {
@@ -463,4 +468,26 @@ input[type="range"] {
     display: block;
     width: 65%;
     margin-left: 17.5%;
+}
+
+#settings-first-row {
+    font-size: 1em;
+}
+
+#settings-first-row span {
+    font-size: 2em;
+}
+
+#settings-first-row span:nth-child(2) {
+    margin-right: 5%;
+    font-size: 1.4em;
+}
+
+#settings-first-row a {
+    text-decoration: none;
+    color: var(--text);
+}
+
+#settings-first-row>div {
+    width: 50%;
 }

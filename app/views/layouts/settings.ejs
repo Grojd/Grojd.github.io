@@ -12,16 +12,11 @@
 </head>
 
 <body>
-    <%- include('../partials/header') %>
-    <%- include('../partials/controlling-container') %>
-    <main>
         <%- body %>
-    </main>
-    <%- include('../partials/filter-button') %>
-    <%- include('../partials/offscreen-filter') %>
-    <%- include('../partials/offscreen-add') %>
-    <%- include('../partials/offscreen-details') %>
-    <script>const records = <%- JSON.stringify(records) %>;</script>
+    <script>
+        const languages = <%- JSON.stringify(languages) %>;
+        const users = <%- JSON.stringify(users) %>;
+    </script>
     <script src="static/javascript/app.js"></script>
 </body>
 

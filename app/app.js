@@ -38,6 +38,18 @@ app.get('/', async (req, res) => {
     res.render('records/index', { records, users, languages });
 });
 
+app.get('/settings', async (req, res) => {
+    const users = await User.find();
+    const languages = await Language.find();
+    res.render('records/settings', { languages, users });
+});
+
+app.post('/settings', async (req, res) => {
+    const newUser = new User(req.body);
+    await newUser.save();
+    res.redirect('/settings');
+});
+
 app.post('/records', async (req, res) => {
     const newRecord = new Record(req.body);
     await newRecord.save();
@@ -53,5 +65,6 @@ app.delete('/records/:id', async (req, res) => {
     const record = await Record.findByIdAndDelete(req.params.id);
     res.redirect('/');
 })
+
 // Port //
 app.listen(3000, () => console.log('app running'));
