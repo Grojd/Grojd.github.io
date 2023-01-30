@@ -31,6 +31,9 @@ app.use(methodOverride('_method'));
 
 // Routes //
 
+
+// Renderovani //
+
 app.get('/', async (req, res) => {
     const records = await Record.find().populate(["user", "language"]);
     const users = await User.find();
@@ -44,11 +47,46 @@ app.get('/settings', async (req, res) => {
     res.render('records/settings', { languages, users });
 });
 
-app.post('/settings', async (req, res) => {
+
+
+// Pridani //
+
+// Uzivatel //
+app.post('/settings/user', async (req, res) => {
     const newUser = new User(req.body);
     await newUser.save();
     res.redirect('/settings');
 });
+
+app.put('/settings/user/:id', async (req, res) => {
+    await User.findByIdAndUpdate(req.params.id, req.body);
+    res.redirect('/settings');
+});
+
+app.delete('/settings/user/:id', async (req, res) => {
+    await Record.findByIdAndDelete(req.params.id);
+    res.redirect('/settings');
+});
+
+// Jazyk //
+app.post('/settings/language', async (req, res) => {
+    const newLanguage = new Language(req.body);
+    await newLanguage.save();
+    res.redirect('/settings');
+});
+
+app.put('/settings/language/:id', async (req, res) => {
+    await Language.findByIdAndUpdate(req.params.id, req.body);
+    res.redirect('/settings');
+});
+
+app.delete('/settings/language/:id', async (req, res) => {
+    await Language.findByIdAndDelete(req.params.id);
+    res.redirect('/settings');
+});
+
+
+// Index - zaznamy //
 
 app.post('/records', async (req, res) => {
     const newRecord = new Record(req.body);
