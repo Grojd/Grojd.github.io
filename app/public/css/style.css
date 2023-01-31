@@ -304,6 +304,7 @@ main {
     transition: all 0.4s ease-in;
     background-color: var(--bg-card);
     overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .inner {
@@ -413,10 +414,8 @@ main {
 /* Přidat */
 
 .offscreen-content-container {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    margin: 0 auto;
+    max-width: 450px;
     text-align: center;
     display: flex;
     flex-flow: column nowrap;
@@ -490,4 +489,95 @@ input[type="range"] {
 
 #settings-first-row>div {
     width: 50%;
+}
+
+@media screen and (max-width: 550px) {
+    .first-row {
+        margin-bottom: 20%;
+    }
+
+    .form {
+        margin-bottom: 10%;
+    }
+}
+
+
+/* Settings */
+
+.div {
+    text-align: center;
+}
+
+.div:nth-child(2) {
+    margin-top: 10%;
+}
+
+.content {
+    display: flex;
+    flex-flow: column nowrap;
+    padding: 5% 0%;
+    justify-content: space-around;
+    align-items: center;
+    color: var(--text);
+    row-gap: 3%;
+    width: 100vw;
+}
+
+.row {
+    margin-top: 5%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-items: center;
+    height: auto;
+    width: 100%;
+    column-gap: 5%;
+}
+
+.two {
+    column-gap: 0%;
+}
+
+.two>.item {
+    margin-right: 2%;
+    padding: 1% 3%;
+}
+
+.item {
+    padding: 1%;
+    min-width: 7vw;
+    width: auto;
+    text-align: center;
+    background-color: var(--bg-card);
+    border-radius: 10px;
+    cursor: pointer;
+    margin-bottom: 5%;
+}
+
+.item:hover {
+    color: var(--text-hover);
+    transition: all 0.2s ease-in;
+}
+
+.item:last-child {
+    border: 3px solid var(--bg-range);
+}
+
+.img {
+    background-image: url('/static/images/user.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    aspect-ratio: 1/1;
+    height: 6vh;
+    width: 100%;
+}
+
+.newish {
+    background-image: url('/static/images/add.png');
+}
+
+.name {
+    display: block;
+    transition: all 0.2s ease-in;
 }
