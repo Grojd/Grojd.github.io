@@ -100,4 +100,4 @@ app.delete('/records/:id', async (req, res) => {
 })
 
 // Port //
-app.listen(3000, () => console.log('app running'));
+app.listen(80, () => console.log('app running'));

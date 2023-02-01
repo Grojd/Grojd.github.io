@@ -51,7 +51,8 @@ const recordSchema = new Schema({
     },
     date: {
         type: Date,
-        default: Date.now
+        required: true,
+        default: Date.now,
     },
     time: {
         type: Number,
@@ -72,6 +73,10 @@ const recordSchema = new Schema({
     description: {
         type: String,
     },
+    tags: {
+        type: [Schema.Types.ObjectId],
+        ref: 'Tag'
+    }
 });
 
 const Record = mongoose.model('Record', recordSchema);

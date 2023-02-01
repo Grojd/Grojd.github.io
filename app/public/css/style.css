@@ -401,6 +401,10 @@ main {
     cursor: pointer;
 }
 
+.set-exit {
+    display: none;
+}
+
 @media screen and (max-width: 650px) {
     .exit {
         transform: rotate(-90deg);
@@ -408,6 +412,21 @@ main {
 
     .sort-group {
         flex-basis: 40%;
+    }
+
+    .set-exit {
+        display: block;
+        transform: none;
+        width: 100%;
+        text-align: center;
+        margin-top: 10%;
+        color: var(--text);
+        position: relative;
+        font-size: 2em;
+    }
+
+    .pc-exit {
+        display: none;
     }
 }
 
@@ -535,7 +554,7 @@ input[type="range"] {
 }
 
 .two {
-    column-gap: 1%;
+    column-gap: 5%;
 }
 
 .two>.item {
@@ -552,6 +571,9 @@ input[type="range"] {
     border-radius: 10px;
     cursor: pointer;
     margin-bottom: 2%;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
 }
 
 .item:hover {
@@ -566,7 +588,7 @@ input[type="range"] {
     background-position: center;
     aspect-ratio: 1/1;
     height: 6vh;
-    width: 100%;
+    width: 50px;
 }
 
 .newish {
@@ -579,5 +601,49 @@ input[type="range"] {
 }
 
 .langC {
-    min-width: 5vw;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    min-width: 60px;
+    height: 35px;
+}
+
+.langC>.item {
+    padding: 3px 10px;
+}
+
+.langC>.del {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.2s linear;
+}
+
+.visible {
+    visibility: visible !important;
+    opacity: 1 !important;
+    transition: visibility 0s, opacity 0.2s linear !important;
+}
+
+.langC>.del>form>button {
+    transform: translateY(-35%);
+    background-color: #ba1611;
+    border-radius: 5px;
+    color: var(--text);
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    transition: all 100ms ease-in-out;
+    border: 0px solid var(--text);
+    outline: 0px solid #ba1611;
+}
+
+.langC>.del>form>button:hover,
+.langC>.del>form>button:focus {
+    border: 1px solid var(--text);
+    outline: 1px solid #ba1611;
+}
+
+.langC>.item:last-child {
+    transform: none;
 }
