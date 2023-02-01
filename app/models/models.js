@@ -11,6 +11,10 @@ const userSchema = new Schema({
     }
 })
 
+userSchema.pre('findOneAndDelete', async function () {
+    await Record.deleteMany({ user: this._conditions._id });
+})
+
 const languageSchema = new Schema({
     name: {
         type: String,
@@ -18,6 +22,10 @@ const languageSchema = new Schema({
         trim: true,
         minlength: 1
     }
+})
+
+languageSchema.pre('findOneAndDelete', async function () {
+    await Record.deleteMany({ language: this._conditions._id });
 })
 
 const tagSchema = new Schema({
@@ -63,7 +71,6 @@ const recordSchema = new Schema({
     },
     description: {
         type: String,
-        required: true,
     },
 });
 

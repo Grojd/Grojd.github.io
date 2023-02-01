@@ -64,7 +64,7 @@ app.put('/settings/users/:id', async (req, res) => {
 });
 
 app.delete('/settings/users/:id', async (req, res) => {
-    await User.findByIdAndDelete(req.params.id);
+    const user = await User.findByIdAndDelete(req.params.id);
     res.redirect('/settings');
 });
 

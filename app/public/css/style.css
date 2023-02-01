@@ -177,7 +177,7 @@ main {
 
 .nickname {
     z-index: 1;
-    width: 38%;
+    padding: 0 5%;
     height: 4.3vh;
     text-align: center;
     font-weight: 100;
@@ -508,16 +508,15 @@ input[type="range"] {
     text-align: center;
 }
 
-.div:nth-child(2) {
+/* .div:nth-child(2) {
     margin-top: 10%;
-}
+} */
 
 .content {
     display: flex;
     flex-flow: column nowrap;
-    padding: 5% 0%;
+    padding: 3% 0%;
     justify-content: space-around;
-    align-items: center;
     color: var(--text);
     row-gap: 3%;
     width: 100vw;
@@ -531,11 +530,12 @@ input[type="range"] {
     align-items: center;
     height: auto;
     width: 100%;
-    column-gap: 5%;
+    column-gap: 2%;
+    margin: 0 3vw;
 }
 
 .two {
-    column-gap: 0%;
+    column-gap: 1%;
 }
 
 .two>.item {
@@ -545,22 +545,18 @@ input[type="range"] {
 
 .item {
     padding: 1%;
-    min-width: 7vw;
     width: auto;
+    height: auto;
     text-align: center;
     background-color: var(--bg-card);
     border-radius: 10px;
     cursor: pointer;
-    margin-bottom: 5%;
+    margin-bottom: 2%;
 }
 
 .item:hover {
     color: var(--text-hover);
     transition: all 0.2s ease-in;
-}
-
-.item:last-child {
-    border: 3px solid var(--bg-range);
 }
 
 .img {
@@ -580,4 +576,8 @@ input[type="range"] {
 .name {
     display: block;
     transition: all 0.2s ease-in;
+}
+
+.langC {
+    min-width: 5vw;
 }
