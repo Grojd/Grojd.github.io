@@ -8,7 +8,9 @@ const { User, Record, Language } = require('./models/models');
 
 // Databáze //
 mongoose.set('strictQuery', true); // vypnutí varování //
-mongoose.connect('mongodb://localhost:27017/app')
+mongoose.connect('mongodb+srv://voko:6bl8ZAhbFmlIgGs3@cluster0.exvjlks.mongodb.net/?retryWrites=true&w=majority', {
+    useUnifiedTopology: true
+});
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', () => {
